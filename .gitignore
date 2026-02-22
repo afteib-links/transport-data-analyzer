@@ -1,0 +1,13 @@
+# Data files
+*.xlsx
+*.xls
+*.csv
+
+# Local binaries / libraries
+xlsx.full.min.js
+
+# OS / editor
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json

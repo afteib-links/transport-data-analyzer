@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transport Data Analyzer</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>輸送業務データ一括解析ツール</h1>
+    <p class="description">フォルダ内の .xlsx を読み込み、4種類のCSVを一括生成します。</p>
+
+    <section class="panel">
+      <h2>マスター生成</h2>
+      <label class="field">
+        <span>企業マスター元データ（CSV/TSV）</span>
+        <input id="companySourceMaster" type="file" accept=".csv,.tsv,.txt" />
+      </label>
+      <label class="field">
+        <span>案件マスター元データ（CSV/TSV）</span>
+        <input id="projectSourceMaster" type="file" accept=".csv,.tsv,.txt" />
+      </label>
+      <button id="generateMasterButton" type="button">マスターを生成</button>
+      <p id="masterStatus" class="note"></p>
+      <ul id="masterDownloads" class="downloads"></ul>
+    </section>
+
+    <section class="panel">
+      <h2>入力</h2>
+      <label class="field">
+        <span>Excelフォルダ（再帰）</span>
+        <input id="excelFiles" type="file" accept=".xlsx" webkitdirectory directory multiple />
+      </label>
+      <label class="field">
+        <span>企業マスタCSV（任意）</span>
+        <input id="companyMaster" type="file" accept=".csv" />
+      </label>
+      <label class="field">
+        <span>案件マスタCSV（任意）</span>
+        <input id="projectMaster" type="file" accept=".csv" />
+      </label>
+      <button id="runButton" type="button">解析してCSVを生成</button>
+      <p class="note">※ `xlsx.full.min.js` を同階層に配置してください。</p>
+    </section>
+
+    <section class="panel">
+      <h2>出力</h2>
+      <ul id="downloads" class="downloads"></ul>
+    </section>
+
+    <section class="panel">
+      <h2>ログ</h2>
+      <pre id="log" class="log"></pre>
+    </section>
+  </main>
+
+  <script src="./xlsx.full.min.js"></script>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
